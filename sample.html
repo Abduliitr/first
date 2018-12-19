@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=0.1">
+	<script type="text/javascript">
+		function insert(num)
+		{
+			document.Calculator.textview.value = document.Calculator.textview.value + num;
+		}
+		function total()
+		{
+			var exp = document.Calculator.textview.value;
+			if(exp)
+			{
+				document.Calculator.textview.value = eval(exp);
+			}
+		}
+		function erase()
+		{
+			document.Calculator.textview.value = "";
+		}
+		function backspace()
+		{
+			var exp = document.Calculator.textview.value;
+			document.Calculator.textview.value = exp.substring(0, exp.length - 1);
+		}
+		function highlight()
+		{
+			document.getElementsByTagName('button').style.background-color = #898989;
+		}
+	</script>
+	<style type="text/css">
+		*
+		{
+			margin: 0px;
+			padding: 0px;
+		}
+		.button
+		{
+			margin: 2px;
+			padding: 5px;
+			font-size: 28px;
+			height: 52px;
+			width: 52px;
+			background-color: #cdcdcd;
+		}
+		.textview
+		{
+			width: 207px;
+			height: 52px;
+			margin: 5px;
+			padding: 5px;
+			font-size: 25px;
+			border-radius: 5px;
+			border: 2px #ababab solid;
+		}
+		.main
+		{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translateX(-50%)translateY(-50%);
+			padding-top: 40px;
+			padding-left: 5px;
+			padding-right: 5px;
+			padding-bottom: 5px;
+			background-color: #898989;
+			border: 2px #232323 solid;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<form name="Calculator">
+			<input class="textview" name="textview">
+			<table>
+				<tr>
+					<td><input class="button" type="button" value="(" onclick="insert('(')" onmouseover="highlight()"></td>
+					<td><input class="button" type="button" value=")" onclick="insert(')')" onmouseover="highlight()"></td>
+					<td><input class="button" type="button" value="C" onclick="erase()" onmouseover="highlight()"></td>
+					<td><input class="button" type="button" value="<-" onclick="backspace()" onmouseover="highlight()"></td>
+				</tr>
+				<tr>
+					<td><input class="button" type="button" value="9" onclick="insert(9)" onmouseover="highlight()"></td>
+					<td><input class="button" type="button" value="8" onclick="insert(8)" onmouseover="highlight()"></td>
+					<td><input class="button" type="button" value="7" onclick="insert(7)" onmouseover="highlight()"></td>
+					<td><input class="button" type="button" value="+" onclick="insert('+')" onmouseover="highlight()"></td>
+				</tr>
+				<tr>
+					<td><input class="button" type="button" value="6" onclick="insert(6)" onmouseover="highlight()"></td>
+					<td><input class="button" type="button" value="5" onclick="insert(5)" onmouseover="highlight()"></td>
+					<td><input class="button" type="button" value="4" onclick="insert(4)" onmouseover="highlight()"></td>
+					<td><input class="button" type="button" value="-" onclick="insert('-')" onmouseover="highlight()"></td>
+				</tr>
+				<tr>
+					<td><input class="button" type="button" value="3" onclick="insert(3)" onmouseover="highlight()"></td>
+					<td><input class="button" type="button" value="2" onclick="insert(2)" onmouseover="highlight()"></td>
+					<td><input class="button" type="button" value="1" onclick="insert(1)" onmouseover="highlight()"></td>
+					<td><input class="button" type="button" value="*" onclick="insert('*')" onmouseover="highlight()"></td>
+				</tr>
+				<tr>
+					<td><input class="button" type="button" value="=" onclick="total()" onmouseover="highlight()"></td>
+					<td><input class="button" type="button" value="0" onclick="insert(0)" onmouseover="highlight()"></td>
+					<td><input class="button" type="button" value="." onclick="insert('.')" onmouseover="highlight()"></td>
+					<td><input class="button" type="button" value="/" onclick="insert('/')" onmouseover="highlight()"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
